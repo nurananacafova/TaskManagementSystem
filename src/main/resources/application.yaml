@@ -1,0 +1,32 @@
+spring:
+  datasource:
+    url: jdbc:mysql://mysql:3306/organizationdb # for docker
+#    url: jdbc:mysql://localhost:3306/organizationdb # without docker
+    username: root
+    password: yourpassword
+
+# commented because of docker
+  jpa:
+    hibernate:
+      ddl-auto: update
+#    show-sql: true
+#    properties:
+#      hibernate:
+#        format_sql: true
+#    generate-ddl: true
+
+  jwt:
+    SECRET_KEY: "7ebe8d71e6ea4ae6192cb0a85e640221058c28adb6b5564b29f7faf8bc61b2f6"
+
+  kafka:
+    bootstrap-servers: ${KAFKA_HOST:localhost}:${KAFKA_PORT:9092}
+    producer:
+#      bootstrap-servers: localhost:9092
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+#      bootstrap-servers: localhost:9092
+      group-id: task-group-id
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringSerializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonSerializer
