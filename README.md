@@ -11,7 +11,7 @@ This is system for tasks.
 ## Installation
 
 ```
-git clone https://github.com/nurananacafova/TaskManagement.git
+git clone https://github.com/nurananacafova/TaskManagementSystem.git
 ```
 
 ## Getting Started
